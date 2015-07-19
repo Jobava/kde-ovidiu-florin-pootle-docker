@@ -10,3 +10,6 @@ RUN virtualenv /var/www/pootle/env
 RUN . /var/www/pootle/env/bin/activate
 RUN pip install "Pootle==2.5.1.3"
 RUN pootle --version
+RUN pootle init
+RUN pootle setup
+RUN pootle start
