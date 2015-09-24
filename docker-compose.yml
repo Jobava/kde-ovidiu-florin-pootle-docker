@@ -1,5 +1,5 @@
-pootleTest:
-    image: pootle
+pootle:
+    build: .
     links:
 #        - db
     ports:
