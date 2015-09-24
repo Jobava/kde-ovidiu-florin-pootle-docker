@@ -1,15 +1,15 @@
 ## -*- docker-imag-name: "pootle" -*-
 FROM debian:8
 MAINTAINER Ovidiu-Florin BOGDAN "ovidiu.b13@gmail.com"
-RUN apt-get -qq update
-RUN apt-get -qq -y upgrade
-RUN apt-get install -y python python-setuptools libxml2 libxml2-dev build-essential python-dev libxslt-dev zlib1g-dev
-RUN easy_install pip
-RUN pip install virtualenv
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y build-essential libxml2-dev zlib1g-dev libxslt-dev python-dev python-pip python-virtualenv
 RUN virtualenv /var/www/pootle/env
-RUN . /var/www/pootle/env/bin/activate
-RUN pip install "Pootle==2.5.1.3"
+RUN source /var/www/pootle/env/bin/activate
+RUN pip install --upgrade pip
+RUN pip install Pootle
 RUN pootle --version
 RUN pootle init
-RUN pootle setup
-RUN pootle start
+RUN pootle migrate
+#RUN pootle setup
+#RUN pootle start
