@@ -1,5 +1,5 @@
 ## -*- docker-imag-name: "pootle" -*-
-FROM ubuntu:14.04
+FROM debian:8
 MAINTAINER Ovidiu-Florin BOGDAN "ovidiu.b13@gmail.com"
 RUN apt-get -qq update
 RUN apt-get -qq -y upgrade
